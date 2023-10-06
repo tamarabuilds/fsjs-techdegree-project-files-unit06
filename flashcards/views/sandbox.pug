@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+  head
+    title Flash Cards
+  body
+    header
+        h1 Flash Cards
+    section#content
+        h2 Welcome, student!
+        table(style='width:20%', border='1')
+            tr
+                th First name
+                th Last name
+            each val, key  in friendsList
+                tr
+                    td= key
+                    td= val
+    footer
+        p An app to help you study
