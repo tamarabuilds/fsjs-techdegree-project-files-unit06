@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  header.grid-container.intro
+    div
+      h1 The Recipe Box
+      p.lead.text-light A collection of delicious recipes for you to use in the kitchen.
+    button Dark Mode
+
+  main.grid-container
+    .grid-x.grid-margin-x.medium-up-2.large-up-3
+      //- iterates over each recipe to render recipe markup for each recipe object
+      each recipe in recipes        
+        a.cell(href=`/recipes/${recipe.id}`)
+          h3= recipe.recipe_name
+          img.thumbnail(src=`${recipe.image_url}`)
+      
