@@ -27,6 +27,16 @@ router.get('/error', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   console.log(`Quote ${req.params.id} route called`);
 
+  if (quotes[req.params.id]){
+    res.render('quote', { title: 'Code Quote', quote: quotes[req.params.id] });
+    
+  } else {
+    const err = new Error();
+    err.status = 404;
+    err.message = 'Sorry, no page found';
+    next(err);
+    
+  }
   /* TODO 3: Check if the requested quote exists 
       - If quote exists, render the 'quote' view with the quote
       - Else:
@@ -35,7 +45,6 @@ router.get('/:id', (req, res, next) => {
         * Forward the error to the global error handler
   */
 
-  res.render('quote', { title: 'Code Quote', quote: quotes[req.params.id] });
 });
 
 module.exports = router;
