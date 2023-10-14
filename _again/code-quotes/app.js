@@ -37,7 +37,7 @@ app.use((req, res, next) => {
     - Render the 'not-found' view
   */ 
   res.status = 404;
-  res.render('not-found')
+  res.render('not-found');
 });
 
 /* Global error handler */
